@@ -1,15 +1,15 @@
 var fs = require('fs');
 var path = require('path');
-var express = require('express');
 var jsonPath = path.join(__dirname, 'data.json');
+
 
 function insertChirp(chirp) {
     return new Promise(function(resolve, reject) {
+        console.log('in my promise');
         fs.readFile(jsonPath, 'utf-8', function(err, file) {
             if (err) {
                 reject('Error reading data.json');
             }
-
             var parsed = JSON.parse(file);
 
             parsed.push(chirp);
@@ -26,6 +26,7 @@ function insertChirp(chirp) {
 }
 
 function getChirps() {
+    console.log('in my promise');
     return new Promise(function(resolve, reject) {
         fs.readFile(jsonPath, 'utf-8', function(err, file) {
             if (err) {
@@ -48,10 +49,10 @@ function updateChirp(chirp) {
                 isFound = false;
 
             parsed.forEach(function(element) {
-                if (element.id === body.id) {
+                if (element.id === chirp.id) {
                     isFound = true;
-                    element.user = body.user;
-                    element.message = body.message;
+                    element.user = chirp.user;
+                    element.message = chirp.message;
                 }
             });
 

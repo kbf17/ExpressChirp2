@@ -1,10 +1,11 @@
 var moment = require('moment');
 
-function timeStamp (chirp){
-    if (chirp.time){
-        return chirp;
+function timeStamp (req, res, next){
+    if (req.body.time){
+        return req.body;
     }
-    chirp.time = moment();
+    req.body.time = moment().format();
+    next();
 };
 
-module.exports.timeStamp = timeStamp;
+module.exports = timeStamp;
