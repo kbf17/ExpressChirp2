@@ -1,0 +1,140 @@
+body{
+    background-color: #EFEDF2 !important;
+  
+}
+
+
+.navbar {
+    background-color: #A3BFD1;
+    background-size: inherit;
+    font-size: 25px;
+}
+.container-fluid {
+    max-width: 85%;
+}
+.navbar-brand>img {
+    padding-bottom: 25px;
+}
+
+
+a {
+    display: block;
+    color: #D98433;
+    text-decoration: none;
+}
+a:link{
+    text-decoration: none;
+}
+ a:hover{
+    text-decoration: none !important;
+} 
+
+/* sidebar */
+#sidebar {
+    width: 12em;
+    display: inline-block;
+    position: absolute;
+    margin-left: 20px;
+}
+
+
+#chirpForm {
+    width: inherit;
+    border: 2px solid #D5D8F5;
+    background-color: #D5D8F5;
+}
+
+.primary-text {
+    font-family: 'Amatic SC', cursive;
+    color: #262A2E;
+}
+.secondary-text {
+    font-family: 'Josefin Slab', serif;
+}
+/*Home Page  */
+.landing{
+
+    background-image: url("../assets/girl.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    opacity: 0.9;
+    height: 500px;
+    width: 100%;
+}
+.landing-text{
+    display: block;
+    color: #262A2E;
+    padding-bottom: 20px;
+    
+}
+
+.delete{
+    float: right;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*List Page  */
+#list-page {
+    margin: 6em;
+}
+
+.list-container {
+    max-width: 500px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: left;
+}
+
+.inner-container {
+    border-radius: 12px;
+    margin: 7px;
+    background-color: #D5D8F5;
+    padding: 5px;
+}
+
+#list-heading {
+    height: 6em;
+    width: 20em;
+}
+
+.box-shadow{
+-webkit-box-shadow: 33px 26px 40px 0px rgba(133,124,141,1);
+-moz-box-shadow: 33px 26px 40px 0px rgba(133,124,141,1);
+box-shadow: 33px 26px 40px 0px rgba(133,124,141,1);
+}
+
+.title-font{
+    color: #262A2E;
+}
+/* speech bubble */
+.speech-bubble {
+    background-color: #10B6CC;
+	position: relative;
+	
+	border-radius: 12px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 1.375em solid transparent;
+	border-right-color: #10B6CC;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -0.687em;
+	margin-left: -1.375em;
+}
+
+.profile-pics {
+
+}
