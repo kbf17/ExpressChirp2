@@ -67,5 +67,18 @@ router.route('/one/:id')
                 console.log(err);
                 res.sendStatus(500);               
             })
-    });
+})
+
+router.route('/user/:id')
+    .get(function(req, res){
+        console.log('hello chirpy chrips chirps');
+        chirpsHandler.user(req.params.id)
+            .then(function(success){
+                res.send(success);
+            }, function(err){
+                console.log(err);
+                res.sendStatus(500);
+            })
+
+    })
 module.exports = router;

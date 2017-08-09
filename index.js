@@ -8,6 +8,8 @@ var clientPath = path.join(__dirname, 'client');
 
 var app = express();
 
+
+
 app.use(express.static(clientPath));
 app.use(bodyParser.json());
 

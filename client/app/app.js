@@ -11,8 +11,9 @@ app.config(function($routeProvider) {
     .when("/single/:id", {
         templateUrl: '../views/single.html',
     })
-    .when("/user/:user", {
-        templateUrl: '../views/user.html'
+    .when("/chirps/user/:id", {
+        templateUrl: '../views/user.html',
+        controller: 'OneUserController'
     });
 })
     .run(function($rootScope){
@@ -97,22 +98,20 @@ app.controller('UserController', ['$rootScope', '$scope', '$routeParams', '$http
         console.log(response.data);
     });
     $scope.UserPage = function(user){
-        $location.path('/user/' + user)
+        $location.path('/chirps/user/' + user)
     };
     $rootScope.hideIt = false;
 }]);
 
 app.controller('OneUserController', ['$scope', '$routeParams', '$http', '$rootScope', '$location', function($scope, $routeParams, $http, $rootScope, $location){
     $rootScope.hideIt = false;
-    user = $routeParams.user;
-    $http.get('http://localhost:3000/api/chirps/user/' + user)
+    id = $routeParams.id;
+    console.log(id);
+    $http.get('http://localhost:3000/api/chirps/user/' + id)
     .then(function(response){
         console.log(response);
         console.log(response.data);
         $scope.userChirps = response.data;
-        if($scope.imgURL == null){
-            imgURL = ('http://www.clipartqueen.com/image-files/small-bird-silhouette-black.png');
-        }
     });
     $scope.DeleteChirp = function(id){
     console.log('click');

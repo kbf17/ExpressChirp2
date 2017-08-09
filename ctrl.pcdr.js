@@ -102,7 +102,6 @@ function deleteChirp(id) {
             }
 
             var parsed = JSON.parse(file),
-                
                 isDeleted = false,
                 deleteIndex;
 
@@ -129,11 +128,35 @@ function deleteChirp(id) {
         });
     });
 }
+function getUser(id) {
+    return new Promise(function(resolve, reject) {
+        fs.readFile(jsonPath, 'utf-8', function(err, file) {
+            if (err) {
+                reject('Error reading data.json');
+            }
+            console.log('one user promise');
+            var parsed = JSON.parse(file),
+                usersChirps = parsed.filter(function(chirp){
+                if(chirp.userid == id){
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            if (true){
+               resolve(usersChirps);
+            } else{
+                reject('Not Found');
+            }
+        });
+    });
+}
 
 module.exports = {
     create: insertChirp,
     all: getChirps,
     read: getChirp,
     destroy: deleteChirp,
-    update: updateChirp
+    update: updateChirp,
+    user: getUser
 };

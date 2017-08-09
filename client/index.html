@@ -24,8 +24,15 @@
       </div>
     </nav>
       <!-- SideBar -->
-      <div  id="sidebar" ng-hide="hideIt">
-   
+      <div ng-controller="UserController" id="sidebar" ng-hide="hideIt">
+        <div class="users secondary-text">
+          <a data-toggle="collapse" data-target="#listUsers"><h3 class="center">Users</h3></a>
+          <ul id="listUsers" class="list-group">
+            <li ng-repeat="user in userList" ng-click="UserPage(user.id)" class="collapse list-group-item">
+              {{ user.username }}
+            </li>
+          </ul>
+        </div>
               <!-- Chirp Widget   -->
         <div id="chirpWidget" data-ng-controller="PushController">
           <button data-toggle="collapse" data-target="#chirpForm" class="btn btn-default secondary-text">Wanna Chirp About It?</button>
