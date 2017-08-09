@@ -102,6 +102,7 @@ function deleteChirp(id) {
             }
 
             var parsed = JSON.parse(file),
+                
                 isDeleted = false,
                 deleteIndex;
 

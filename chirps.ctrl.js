@@ -46,18 +46,18 @@ router.route('/')
         
     })
 
+router.route('/one/:id')
     .delete(function(req, res){
         console.log('Delete the things');
-        chirpsHandler.destroy(req.body.id)
+        chirpsHandler.destroy(req.params.id)
             .then(function(success){
                 res.send(success);
             }, function(err){
                 console.log(err);
+                console.log('chirp controller');
                 res.sendStatus(500);               
             })
-        
     })
-router.route('/one/:id')
     .get(function(req, res) {
         console.log('get single item');
         chirpsHandler.read(req.params.id)

@@ -39,7 +39,7 @@ app.controller('ChirpsController', ['$rootScope', '$http', '$scope', '$location'
         $location.path('/single/' + id)
     };
     $scope.DeleteChirp = function(id){
-        console.log('click');
+        console.log('inside my delete functiontion');
         var data = $.param({
             name: $scope.name,
             message: $scope.message,
@@ -51,6 +51,7 @@ app.controller('ChirpsController', ['$rootScope', '$http', '$scope', '$location'
             method: 'DELETE',
             url: $rootScope.api + '/one/' + id
             });
+            alert('Chirp Deleted.');
         } else{
             alert('Good choice!');
         };
@@ -77,7 +78,6 @@ app.controller('PushController', function($scope, $http, $rootScope, $location){
                 message : $scope.message,
                 imgURL: $scope.imgURL
             });
-            $scope.data = data;
             $http.post($rootScope.api, data)
             .then(function(response){
                 console.log(response);
