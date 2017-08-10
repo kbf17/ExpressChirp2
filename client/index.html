@@ -39,14 +39,14 @@
           <div id="chirpForm" class="collapse secondary-text">
             <form>
               <div class="form-group">
-                <label for="name-input">Name</label>
-                <input type="text" class="form-control" id="name-input" ng-model="user" required></input>
-              </div>
-              <div class="form-group">
                 <label for="chirp-input">Chirp It!</label>
                 <input type="text" class="form-control" row="3" id="chirp-input" placeholder="Share your thoughts" ng-model="message" required></input>
-                <label for="imgURL">Custom User Pic (url only)</label> 
-                <input type="url" class="form-control" ng-model="imgURL" id="img-input"></input>
+                <select name="Username" id="usernameid">
+                  <option value="1" id="Kristine">Kristine</option>
+                  <option value="2">Prince</option>
+                  <option value="3">TSwizzle</option>
+                  <option value="4">Dat Boi</option>
+                </select>
                 <button class="btn btn-default" ng-click="SendChirp()">Chirp</button>
               </div>
             </form>

@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var jsonPath = path.join(__dirname, 'data.json');
+var userPathJSON = path.join(__dirname, 'users.json');
 
 
 function insertChirp(chirp) {
@@ -32,8 +33,19 @@ function getChirps() {
             if (err) {
                 reject('Error reading data.json');
             }
+            var chirps = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+            var users = JSON.parse(fs.readFileSync(userPathJSON, 'utf-8'));
 
-            resolve(JSON.parse(file));
+            var userMap = {};
+
+            users.forEach(function(user){
+                userMap[(user.id)] = user.username;
+            });
+            chirps.forEach(function(chirp){
+                chirp.user = userMap[chirp.userid.toString()];
+            });
+
+            resolve(chirps);
         });
     });
 }

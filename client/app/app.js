@@ -30,6 +30,7 @@ app.controller('ChirpsController', ['$rootScope', '$http', '$scope', '$location'
     $http.get($rootScope.api)
     .then(function(response){
         $scope.chirpList = response.data;
+        console.log($scope.userInfo);  
         console.log('success');   
         console.log(response);
     })
@@ -75,17 +76,14 @@ app.controller('PushController', function($scope, $http, $rootScope, $location){
           alert("Must submit user and message!");  
         }else{
             var data = ({
-                user : $scope.user,
+                userid : usernameid.value,
                 message : $scope.message,
-                imgURL: $scope.imgURL
             });
             $http.post($rootScope.api, data)
             .then(function(response){
                 console.log(response);
                 alert('Chirp sent!');
-                $('#name-input').val('');
                 $('#chirp-input').val('');
-                $('#img-input').val('');
             });
         }
     }
@@ -107,6 +105,13 @@ app.controller('OneUserController', ['$scope', '$routeParams', '$http', '$rootSc
     $rootScope.hideIt = false;
     id = $routeParams.id;
     console.log(id);
+    $http.get('http://localhost:3000/api/users')
+    .then(function(response){
+        var i = id - 1;
+    console.log(response.data[i]);
+    $scope.userInfo = response.data[i];
+        
+    })
     $http.get('http://localhost:3000/api/chirps/user/' + id)
     .then(function(response){
         console.log(response);
